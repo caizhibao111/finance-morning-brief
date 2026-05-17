@@ -31,6 +31,12 @@ jobs:
           pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: 安装中文字体
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-noto-cjk fonts-wqy-zenhei
+          fc-cache -fv
+
       - name: 生成早报
         env:
           TZ: Asia/Shanghai
@@ -49,7 +55,33 @@ jobs:
 
       - name: 生成PDF早报
         run: |
-          google-chrome --headless --disable-gpu --no-sandbox --print-to-pdf=docs/brief.pdf "file://$PWD/docs/index.html"
+          python - <<'PY'
+          from pathlib import Path
+
+          html_path = Path("docs/index.html")
+          html = html_path.read_text(encoding="utf-8")
+          font_fix = """
+          <style id="codex-cjk-pdf-font-fix">
+          * {
+            font-family: "Noto Sans CJK SC", "WenQuanYi Zen Hei", "Microsoft YaHei", Arial, sans-serif !important;
+          }
+          @page {
+            size: A4;
+            margin: 10mm;
+          }
+          body {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+          }
+          </style>
+          """
+          if "</head>" in html:
+              html = html.replace("</head>", font_fix + "\n</head>", 1)
+          else:
+              html = font_fix + html
+          html_path.write_text(html, encoding="utf-8")
+          PY
+          google-chrome --headless --disable-gpu --no-sandbox --run-all-compositor-stages-before-draw --print-to-pdf=docs/brief.pdf "file://$PWD/docs/index.html"
           test -f docs/brief.pdf
           ls -lh docs/brief.pdf
 
