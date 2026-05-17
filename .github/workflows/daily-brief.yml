@@ -14,7 +14,7 @@ permissions:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
 
     steps:
       - name: 检出代码
@@ -38,18 +38,15 @@ jobs:
           CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL }}
           GITHUB_PAGES_URL: ${{ vars.PAGES_URL }}
         run: python main.py
-     
-      - name: 检查早报生成结果
+
+      - name: 检查早报文件
         run: |
-          echo "当前目录："
-          pwd
-          echo "根目录文件："
+          test -f summary.json
+          test -f docs/index.html
           ls -la
-          echo "docs目录文件："
-          ls -la docs || true
-          echo "summary.json内容："
-          cat summary.json || true
-     
+          ls -la docs
+          cat summary.json
+
       - name: 部署到GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
