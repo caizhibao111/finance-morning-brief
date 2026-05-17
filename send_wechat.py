@@ -1,7 +1,9 @@
-import os
+import glob
 import json
+import os
 import time
 from datetime import datetime
+
 import requests
 
 
@@ -10,18 +12,40 @@ WECHAT_WEBHOOK_URL = os.environ.get('WECHAT_WEBHOOK_URL', '')
 GITHUB_PAGES_URL = os.environ.get('GITHUB_PAGES_URL', '')
 
 
+def resolve_brief_filename() -> str:
+    """Return the generated brief filename, even if summary.json is missing."""
+    if os.path.exists('summary.json'):
+        with open('summary.json', 'r', encoding='utf-8') as f:
+            summary = json.load(f)
+        filename = summary.get('filename')
+        if filename:
+            return filename
+
+    today_file = f"docs/brief-{datetime.now().strftime('%Y%m%d')}.html"
+    if os.path.exists(today_file):
+        return os.path.basename(today_file)
+
+    brief_files = sorted(glob.glob('docs/brief-*.html'), reverse=True)
+    if brief_files:
+        return os.path.basename(brief_files[0])
+
+    if os.path.exists('docs/index.html'):
+        return 'index.html'
+
+    raise FileNotFoundError('未找到 summary.json，也未找到 docs 下的早报 HTML 文件')
+
+
 def main():
     print('等待GitHub Pages部署...')
     time.sleep(60)
 
-    with open('summary.json', 'r', encoding='utf-8') as f:
-        summary = json.load(f)
+    filename = resolve_brief_filename()
 
     today = datetime.now()
-    weekday_cn = ['星期一','星期二','星期三','星期四','星期五','星期六','星期日'][today.weekday()]
-    url = f"{GITHUB_PAGES_URL.rstrip('/')}/{summary['filename']}"
+    weekday_cn = ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日'][today.weekday()]
+    url = f"{GITHUB_PAGES_URL.rstrip('/')}/{filename}"
     title = f'财经早报 {today.strftime("%m月%d日")}'
-    content = f'📊 财经早报 · {today.strftime("%m月%d日")}（{weekday_cn}）已更新，点击查看完整早报'
+    content = f'财经早报 · {today.strftime("%m月%d日")}（{weekday_cn}）已更新，点击查看完整早报'
 
     if WECHAT_WEBHOOK_URL:
         payload = {
@@ -48,13 +72,13 @@ def main():
         'contentType': 1,
         'topicIds': [],
         'url': url,
-        'verifyPay': False
+        'verifyPay': False,
     }
 
     r = requests.post(
         'https://wxpusher.zjiecode.com/api/send/message',
         json=payload,
-        timeout=15
+        timeout=15,
     )
     r.raise_for_status()
     result = r.json()
