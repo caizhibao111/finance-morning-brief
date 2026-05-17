@@ -125,12 +125,14 @@ def main():
     time.sleep(20)
 
     filename = resolve_brief_filename()
-    local_file = os.path.join('docs', filename)
+    pdf_file = os.path.join('docs', 'brief.pdf')
+    local_file = pdf_file if os.path.exists(pdf_file) else os.path.join('docs', filename)
     today = datetime.now()
     weekday_cn = ['星期一', '星期二', '星期三', '星期四', '星期五', '星期六', '星期日'][today.weekday()]
     url = f"{GITHUB_PAGES_URL.rstrip('/')}/{filename}" if GITHUB_PAGES_URL else ''
     title = f'财经早报 {today.strftime("%m月%d日")}'
-    content = f'财经早报 · {today.strftime("%m月%d日")}（{weekday_cn}）已更新。已随消息附上 HTML 文件，企业微信内可直接打开，无需 VPN。'
+    file_type = 'PDF' if local_file.endswith('.pdf') else 'HTML'
+    content = f'财经早报 · {today.strftime("%m月%d日")}（{weekday_cn}）已更新。已随消息附上 {file_type} 文件，企业微信内可直接预览，无需 VPN。'
 
     if WECHAT_WEBHOOK_URL:
         # 先发一条说明，再发 HTML 文件。链接仅作为备用，不依赖 GitHub Pages。
