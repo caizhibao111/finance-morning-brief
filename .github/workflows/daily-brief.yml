@@ -47,6 +47,12 @@ jobs:
           ls -la docs
           cat summary.json
 
+      - name: 生成PDF早报
+        run: |
+          google-chrome --headless --disable-gpu --no-sandbox --print-to-pdf=docs/brief.pdf "file://$PWD/docs/index.html"
+          test -f docs/brief.pdf
+          ls -lh docs/brief.pdf
+
       - name: 部署到GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
