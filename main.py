@@ -405,23 +405,26 @@ def get_company_announcements() -> list:
         if len(announcements) < 5:
             try:
                 from datetime import datetime
-                df2 = ak.stock_yjyg_em(date=datetime.now().strftime('%Y%m%d'))
-                for _, row in df2.head(10).iterrows():
-                    company = str(row.get('股票简称', ''))
-                    code = str(row.get('股票代码', ''))
-                    ytype = str(row.get('业绩预告类型', ''))
-                    reason = str(row.get('业绩变动原因', ''))[:80]
-                    if company:
-                        announcements.append({
-                            'company':   company,
-                            'code':      code,
-                            'title':     f'业绩预告：{ytype}',
-                            'type':      '业绩预告',
-                            'date':      datetime.now().strftime('%Y-%m-%d'),
-                            'detail':    reason,
-                            'important': True,
-                        })
-                print(f'    ✓ stock_yjyg_em补充: {min(10,len(df2))}条')
+               df2 = ak.stock_yjyg_em(date=datetime.now().strftime('%Y%m%d'))
+if df2 is None or getattr(df2, 'empty', True):
+    print('    - stock_yjyg_em: 当日暂无业绩预告数据')
+else:
+    for _, row in df2.head(10).iterrows():
+        company = str(row.get('股票简称', ''))
+        code = str(row.get('股票代码', ''))
+        ytype = str(row.get('业绩预告类型', ''))
+        reason = str(row.get('业绩变动原因', ''))[:80]
+        if company:
+            announcements.append({
+                'company':   company,
+                'code':      code,
+                'title':     f'业绩预告：{ytype}',
+                'type':      '业绩预告',
+                'date':      datetime.now().strftime('%Y-%m-%d'),
+                'detail':    reason,
+                'important': True,
+            })
+    print(f'    ✓ stock_yjyg_em补充: {min(10,len(df2))}条')
             except Exception as e:
                 print(f'    ✗ stock_yjyg_em: {str(e)[:60]}')
 
