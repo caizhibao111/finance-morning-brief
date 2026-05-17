@@ -36,7 +36,7 @@ jobs:
           TZ: Asia/Shanghai
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL }}
-          GITHUB_PAGES_URL: ${{ vars.GITHUB_PAGES_URL }}
+          GITHUB_PAGES_URL: ${{ vars.PAGES_URL }}
         run: python main.py
 
       - name: 部署到GitHub Pages
@@ -51,5 +51,5 @@ jobs:
           TZ: Asia/Shanghai
           WECHAT_WEBHOOK_URL: ${{ secrets.WECHAT_WEBHOOK_URL }}
           WXPUSHER_TOKEN: ${{ secrets.WXPUSHER_TOKEN }}
-          GITHUB_PAGES_URL: ${{ vars.GITHUB_PAGES_URL }}
+          GITHUB_PAGES_URL: ${{ vars.PAGES_URL }}
         run: python send_wechat.py
