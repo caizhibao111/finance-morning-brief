@@ -38,7 +38,18 @@ jobs:
           CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL }}
           GITHUB_PAGES_URL: ${{ vars.PAGES_URL }}
         run: python main.py
-
+     
+      - name: 检查早报生成结果
+        run: |
+          echo "当前目录："
+          pwd
+          echo "根目录文件："
+          ls -la
+          echo "docs目录文件："
+          ls -la docs || true
+          echo "summary.json内容："
+          cat summary.json || true
+     
       - name: 部署到GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
