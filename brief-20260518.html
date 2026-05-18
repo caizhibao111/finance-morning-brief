@@ -1,105 +1,778 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>财经早报 2026-05-18</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>陆家嘴财经早报 · 2026年05月18日</title>
 <style>
-body { margin:0; background:#FAF8F3; color:#1A1A1A; font-family:'Noto Sans CJK SC','WenQuanYi Zen Hei','Microsoft YaHei',Arial,sans-serif; line-height:1.65; }
-header { background:#1A1A1A; color:#C9A84C; padding:28px 20px; }
-main { max-width:980px; margin:0 auto; padding:24px 18px 48px; }
-h1 { margin:0; font-size:30px; }
-h2 { border-left:5px solid #C9A84C; padding-left:10px; margin-top:28px; color:#1A3A6B; }
-pre { white-space:pre-wrap; background:#fff; border:1px solid #ddd; padding:16px; border-radius:8px; }
-.notice { background:#fff7d6; border:1px solid #d8bf63; padding:14px; border-radius:8px; }
-@page { size:A4; margin:10mm; }
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --bg: #FAF8F3;
+    --header-bg: #1A1A1A;
+    --gold: #C9A84C;
+    --red: #CC2929;
+    --green: #0D7A4A;
+    --blue: #1A3A6B;
+    --text-primary: #1A1A1A;
+    --text-secondary: #4A4A4A;
+    --text-muted: #888;
+    --border: #E0D9CC;
+    --card-bg: #FFFFFF;
+    --section-bg: #F2EDE3;
+  }
+
+  body {
+    font-family: 'Noto Sans SC', 'WenQuanYi Zen Hei', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+    background: var(--bg);
+    color: var(--text-primary);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* ===== HEADER ===== */
+  .masthead {
+    background: var(--header-bg);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+  }
+
+  .masthead-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .masthead-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .logo-block {
+    border-left: 4px solid var(--gold);
+    padding-left: 12px;
+  }
+
+  .logo-title {
+    font-size: 20px;
+    font-weight: 900;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    line-height: 1.2;
+  }
+
+  .logo-subtitle {
+    font-size: 10px;
+    color: var(--gold);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .masthead-meta {
+    text-align: right;
+  }
+
+  .masthead-date {
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
+  .masthead-issue {
+    font-size: 10px;
+    color: #888;
+    letter-spacing: 1px;
+  }
+
+  .gold-bar {
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), #E8C96A, var(--gold));
+  }
+
+  /* ===== LAYOUT ===== */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 16px;
+  }
+
+  .grid-main {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 20px;
+    align-items: start;
+  }
+
+  .col-left { min-width: 0; }
+  .col-right { min-width: 0; }
+
+  /* ===== SECTION ===== */
+  .section {
+    margin-bottom: 20px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+  }
+
+  .section-icon {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .icon-gold { background: var(--gold); }
+  .icon-blue { background: var(--blue); }
+  .icon-red { background: var(--red); }
+  .icon-green { background: var(--green); }
+  .icon-dark { background: #333; }
+  .icon-purple { background: #6B3FA0; }
+
+  .section-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 1px;
+  }
+
+  .section-badge {
+    margin-left: auto;
+    font-size: 10px;
+    color: var(--text-muted);
+    background: var(--section-bg);
+    padding: 2px 8px;
+    border-radius: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ===== CARD ===== */
+  .card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid var(--border);
+    margin-bottom: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+
+  .card:last-child { margin-bottom: 0; }
+
+  /* ===== MARKET SNAPSHOT ===== */
+  .market-snapshot {
+    background: var(--card-bg);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .snapshot-header {
+    background: linear-gradient(135deg, var(--blue), #2A5298);
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .snapshot-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+  }
+
+  .snapshot-time {
+    font-size: 10px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .snapshot-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .snapshot-item {
+    padding: 14px 12px;
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .snapshot-item:nth-child(4n) { border-right: none; }
+  .snapshot-item:nth-last-child(-n+4) { border-bottom: none; }
+
+  .snap-label {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+  }
+
+  .snap-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+  }
+
+  .snap-change {
+    font-size: 11px;
+    font-weight: 600;
+    margin-top: 3px;
+  }
+
+  .up { color: var(--red); }
+  .down { color: var(--green); }
+  .neutral { color: var(--text-muted); }
+
+  /* ===== DIGEST ===== */
+  .digest-list {
+    list-style: none;
+    counter-reset: digest;
+  }
+
+  .digest-list li {
+    counter-increment: digest;
+    display: flex;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border);
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .digest-list li:last-child { border-bottom: none; }
+
+  .digest-list li::before {
+    content: counter(digest);
+    min-width: 20px;
+    height: 20px;
+    background: var(--gold);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ===== NEWS ITEM ===== */
+  .news-item {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .news-item:last-child { border-bottom: none; }
+
+  .news-tag {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .tag-macro { background: #E8F0FE; color: var(--blue); }
+  .tag-market { background: #FFF3E0; color: #E65100; }
+  .tag-policy { background: #E8F5E9; color: var(--green); }
+  .tag-tech { background: #F3E5F5; color: #6B3FA0; }
+  .tag-intl { background: #FCE4EC; color: #C62828; }
+  .tag-corp { background: #E0F2F1; color: #00695C; }
+  .tag-ai { background: #EDE7F6; color: #4527A0; }
+  .tag-warn { background: #FFF8E1; color: #F57F17; }
+
+  .news-headline {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.5;
+    margin-bottom: 4px;
+  }
+
+  .news-body {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .news-source {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  /* ===== MACRO TABLE ===== */
+  .macro-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+
+  .macro-table th {
+    background: var(--section-bg);
+    padding: 8px 10px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .macro-table td {
+    padding: 9px 10px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-primary);
+    vertical-align: top;
+  }
+
+  .macro-table tr:last-child td { border-bottom: none; }
+  .macro-table tr:hover td { background: #FAFAF7; }
+
+  .val-positive { color: var(--red); font-weight: 600; }
+  .val-negative { color: var(--green); font-weight: 600; }
+  .val-neutral { color: var(--text-muted); }
+
+  /* ===== ANNOUNCEMENT ===== */
+  .announce-item {
+    display: flex;
+    gap: 10px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+
+  .announce-item:last-child { border-bottom: none; }
+
+  .announce-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gold);
+    margin-top: 6px;
+    flex-shrink: 0;
+  }
+
+  .announce-text {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .announce-code {
+    font-size: 10px;
+    color: var(--blue);
+    font-weight: 600;
+    background: #EEF2FF;
+    padding: 1px 5px;
+    border-radius: 3px;
+    margin-right: 4px;
+  }
+
+  /* ===== AI LEADERBOARD ===== */
+  .ai-rank-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .ai-rank-item:last-child { border-bottom: none; }
+
+  .rank-num {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .rank-1 { background: #FFD700; color: #333; }
+  .rank-2 { background: #C0C0C0; color: #333; }
+  .rank-3 { background: #CD7F32; color: #fff; }
+  .rank-4 { background: var(--section-bg); color: var(--text-muted); border: 1px solid var(--border); }
+
+  .rank-info { flex: 1; min-width: 0; }
+
+  .rank-model {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .rank-maker {
+    font-size: 10px;
+    color: var(--text-muted);
+  }
+
+  .rank-badge {
+    font-size: 9px;
+    padding: 2px 6px;
+    border-radius: 8px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .badge-intl { background: #E3F2FD; color: #1565C0; }
+  .badge-cn { background: #E8F5E9; color: #2E7D32; }
+
+  /* ===== FOCUS BOX ===== */
+  .focus-box {
+    background: linear-gradient(135deg, #1A3A6B08, #C9A84C10);
+    border: 1px solid var(--gold);
+    border-left: 4px solid var(--gold);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 12px;
+  }
+
+  .focus-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--blue);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .focus-body {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  /* ===== ALERT STRIP ===== */
+  .alert-strip {
+    background: linear-gradient(90deg, #CC292910, #CC292905);
+    border: 1px solid #CC292930;
+    border-left: 3px solid var(--red);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+
+  .alert-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--red);
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+  }
+
+  /* ===== SIDEBAR ===== */
+  .sidebar-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+
+  .sidebar-header {
+    padding: 10px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .sh-gold { background: var(--gold); color: #fff; }
+  .sh-blue { background: var(--blue); color: #fff; }
+  .sh-dark { background: #2A2A2A; color: #fff; }
+  .sh-green { background: var(--green); color: #fff; }
+
+  .sidebar-body { padding: 12px 14px; }
+
+  .kv-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px dashed var(--border);
+    font-size: 12px;
+  }
+
+  .kv-row:last-child { border-bottom: none; }
+  .kv-key { color: var(--text-secondary); }
+  .kv-val { font-weight: 600; color: var(--text-primary); }
+
+  /* ===== DISCLAIMER ===== */
+  .disclaimer {
+    background: #F0EDE6;
+    border-top: 2px solid var(--border);
+    padding: 16px 20px;
+    margin-top: 24px;
+  }
+
+  .disclaimer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .disclaimer-title {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  .disclaimer-text {
+    font-size: 10px;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+
+  /* ===== DIVIDER ===== */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+    margin: 16px 0;
+  }
+
+  /* ===== HIGHLIGHT ===== */
+  .hl-gold { color: var(--gold); font-weight: 600; }
+  .hl-red { color: var(--red); font-weight: 600; }
+  .hl-green { color: var(--green); font-weight: 600; }
+  .hl-blue { color: var(--blue); font-weight: 600; }
+
+  /* ===== TICKER STRIP ===== */
+  .ticker-strip {
+    background: #111;
+    overflow: hidden;
+    padding: 6px 0;
+  }
+
+  .ticker-inner {
+    display: flex;
+    gap: 32px;
+    padding: 0 16px;
+    font-size: 11px;
+    color: #ccc;
+    flex-wrap: wrap;
+  }
+
+  .ticker-item { display: flex; gap: 6px; align-items: center; }
+  .ticker-name { color: #888; }
+  .ticker-val { color: #fff; font-weight: 600; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 900px) {
+    .grid-main {
+      grid-template-columns: 1fr;
+    }
+    .col-right {
+      order: -1;
+    }
+    .snapshot-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .snapshot-item:nth-child(2n) { border-right: none; }
+    .snapshot-item:nth-child(3), .snapshot-item:nth-child(4) { border-bottom: none; }
+  }
+
+  @media (max-width: 480px) {
+    .masthead-inner { padding: 10px 14px; }
+    .logo-title { font-size: 16px; }
+    .container { padding: 14px 12px; }
+    .snap-value { font-size: 14px; }
+    .section-title { font-size: 14px; }
+  }
+
+  /* ===== PRINT ===== */
+  @media print {
+    .masthead { position: static; }
+    .grid-main { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
-<header>
-<h1>财经早报</h1>
-<p>2026年05月18日 09:54</p>
+
+<!-- ===== MASTHEAD ===== -->
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="masthead-left">
+      <div class="logo-block">
+        <div class="logo-title">陆家嘴财经早报</div>
+        <div class="logo-subtitle">Lujiazui Financial Morning Brief</div>
+      </div>
+    </div>
+    <div class="masthead-meta">
+      <div class="masthead-date">2026年05月18日 · 星期一</div>
+      <div class="masthead-issue">晨会版 · 专业投资参考 · 第2026-138期</div>
+    </div>
+  </div>
+  <div class="gold-bar"></div>
+  <div class="ticker-strip">
+    <div class="ticker-inner">
+      <div class="ticker-item"><span class="ticker-name">上证</span><span class="ticker-val down">4135.39 ▼1.02%</span></div>
+      <div class="ticker-item"><span class="ticker-name">深证</span><span class="ticker-val down">15561.37 ▼1.17%</span></div>
+      <div class="ticker-item"><span class="ticker-name">创业板</span><span class="ticker-val down">3929.06 ▼0.56%</span></div>
+      <div class="ticker-item"><span class="ticker-name">科创50</span><span class="ticker-val down">1696.26 ▼1.67%</span></div>
+      <div class="ticker-item"><span class="ticker-name">制造业PMI</span><span class="ticker-val up">50.3（4月）</span></div>
+      <div class="ticker-item"><span class="ticker-name">非制造业PMI</span><span class="ticker-val down">49.4（4月）</span></div>
+    </div>
+  </div>
 </header>
-<main>
-<section class="notice">
-<strong>自动模板版早报。</strong><br>
-AI 润色服务暂时不可用，系统已基于已采集数据生成可读早报。
-</section>
-<h2>采集数据摘要</h2>
-<pre>数据日期：2026-05-18
 
-## A股主要指数
-- 上证指数: 4135.39，下跌1.02%
-- 深证成指: 15561.37，下跌1.17%
-- 创业板指: 3929.06，下跌0.56%
-- 科创50: 1696.26，下跌1.67%
+<!-- ===== MAIN CONTAINER ===== -->
+<div class="container">
 
-## 官方宏观数据
-- 中国PMI制造业: {&quot;月份&quot;: &quot;2026年04月份&quot;, &quot;制造业-指数&quot;: 50.3, &quot;制造业-同比增长&quot;: 2.65306122, &quot;非制造业-指数&quot;: 49.4, &quot;非制造业-同比增长&quot;: -1.98412698}
-- 中国CPI同比: {&quot;商品&quot;: &quot;中国CPI月率报告&quot;, &quot;日期&quot;: &quot;2025-09-10&quot;, &quot;今值&quot;: null, &quot;预测值&quot;: null, &quot;前值&quot;: 0.4}
-- 美联储利率: {&quot;商品&quot;: &quot;美联储利率决议报告&quot;, &quot;日期&quot;: &quot;2025-10-30&quot;, &quot;今值&quot;: null, &quot;预测值&quot;: null, &quot;前值&quot;: null}
+  <!-- ===== MARKET SNAPSHOT ===== -->
+  <div class="market-snapshot">
+    <div class="snapshot-header">
+      <span class="snapshot-title">📊 市场快照 · A股收盘数据</span>
+      <span class="snapshot-time">数据日期：2026-05-18 收盘</span>
+    </div>
+    <div class="snapshot-grid">
+      <div class="snapshot-item">
+        <div class="snap-label">上证指数</div>
+        <div class="snap-value">4,135.39</div>
+        <div class="snap-change down">▼ 1.02%</div>
+      </div>
+      <div class="snapshot-item">
+        <div class="snap-label">深证成指</div>
+        <div class="snap-value">15,561.37</div>
+        <div class="snap-change down">▼ 1.17%</div>
+      </div>
+      <div class="snapshot-item">
+        <div class="snap-label">创业板指</div>
+        <div class="snap-value">3,929.06</div>
+        <div class="snap-change down">▼ 0.56%</div>
+      </div>
+      <div class="snapshot-item">
+        <div class="snap-label">科创50</div>
+        <div class="snap-value">1,696.26</div>
+        <div class="snap-change down">▼ 1.67%</div>
+      </div>
+      <div class="snapshot-item">
+        <div class="snap-label">制造业PMI（4月）</div>
+        <div class="snap-value">50.3</div>
+        <div class="snap-change up">同比 +2.65%</div>
+      </div>
+      <div class="snapshot-item">
+        <div class="snap-label">非制造业PMI（4月）</div>
+        <div class="snap-value">49.4</div>
+        <div class="snap-change down">同比 -1.98%</div>
+      </div>
+      <div class="snapshot-item">
+        <div class="snap-label">CPI同比（近期）</div>
+        <div class="snap-value neutral">暂无实时数据</div>
+        <div class="snap-change neutral">前值 +0.4%</div>
+      </div>
+      <div class="snapshot-item">
+        <div class="snap-label">美联储基准利率</div>
+        <div class="snap-value neutral">暂无实时数据</div>
+        <div class="snap-change neutral">待更新</div>
+      </div>
+    </div>
+  </div>
 
-## 国际财经要闻
-1. [CNBC Finance] One of the market&#x27;s hottest stock themes is buying everything AI can&#x27;t replace
-   摘要：The search for HALO stocks is a hot theme in the stock market. There is now an ETF to invest in it.
-2. [CNBC Finance] AI-related layoffs a boost for stocks? Not necessarily
-   摘要：The data underscores an uncomfortable reality.
-3. [CNBC Finance] Kevin Warsh comes into the Fed facing a big &#x27;family fight&#x27; over cutting interest rates
-   摘要：With inflation spiking and Treasury yields surging, Warsh is likely to confront a Federal Open Market Committee in no mood to ease.
-4. [CNBC Finance] Why Taiwan became the defining issue in the Trump-Xi talks
-   摘要：U.S. President Donald Trump had said arms sales to Taiwan would be on the agenda for his talks with Chinese President Xi Jinping which ended Friday.
-5. [CNBC Finance] Berkshire Hathaway returns to airlines with $2.6 billion stake in Delta Air Lines
-   摘要：The Omaha-based company built a position worth more than $2.6 billion, making Delta Berkshire&#x27;s 14th-largest holding at the end of March.
-6. [CNBC Finance] &#x27;Biggest bottleneck in the AI buildup&#x27; fuels DRAM ETF to record
-   摘要：The Roundhill Memory ETF (DRAM) just reached $10 billion in assets at the fastest pace ever for an exchange-traded fund according to TMX VettaFi.
-7. [CNBC Finance] NFL wants certain trading contracts banned from prediction markets like &#x27;first play of game,&#x27; injuries
-   摘要：The letter, which was reviewed by CNBC, calls for banning certain contracts and raising the age requirements for participation on sports-related contracts.
-8. [CNBC Finance] Stephen Miran exits the Fed. How he set the stage for Kevin Warsh.
-   摘要：The outgoing Fed governor shares big ideas with the incoming chair.
-9. [CNBC Asia] Asia-Pacific markets fall as Trump’s Iran warning stokes fresh oil supply fears
-   摘要：Asia-Pacific markets fell as investors weighed renewed geopolitical tensions after Donald Trump warned Iran to &quot;get moving, FAST.&quot;
-10. [CNBC Asia] Why Taiwan became the defining issue in the Trump-Xi talks
-   摘要：U.S. President Donald Trump had said arms sales to Taiwan would be on the agenda for his talks with Chinese President Xi Jinping which ended Friday.
-11. [CNBC Asia] Chinese EVs are coming to Canada, and some dealers can&#x27;t wait to sell them
-   摘要：Canada is allowing 49,000 Chinese-made electric vehicles to be imported for retail sales annually at a tariff rate of 6.1%.
-12. [CNBC Asia] Singapore Airlines sticking with Air India for the &quot;long game&quot; despite losses
-   摘要：Air India has been a big drag on SIA&#x27;s earnings, but the airline says its investment is part of the &quot;long game&quot;
-13. [CNBC Asia] Honda shares rise over 7% as investors shrug off first operating loss in nearly 70 years
-   摘要：Honda Motor rose over 7% on Friday, even after posting its first annual operating loss in nearly 70 years.
-14. [CNBC Asia] Billionaire Gautam Adani and nephew agree to pay $18 million in SEC settlement over fraud allegations
-   摘要：Indian billionaire Gautam Adani and his nephew Sagar Adani have agreed to settle a U.S. Securities and Exchange Commission lawsuit over allegations they misled investors.
-15. [CNBC Asia] China to buy U.S. oil to feed its &#x27;insatiable appetite,&#x27; Trump tells Fox News
-   摘要：Trump and Chinese President Xi Jinping are scheduled to meet Friday to close out a two-day summit that has featured pageantry and dealmaking.
-16. [MarketWatch] Dow futures drop, oil prices push higher as Iran war remains stuck in stalemate
-   摘要：U.S. stock-index futures fell and crude prices rose on Sunday, after the market’s rally stalled last week as oil prices rose sharply amid the impasse in the war with Iran.
+  <!-- ===== GRID MAIN ===== -->
+  <div class="grid-main">
 
-## 科技商业大佬动向
-- [Elon Musk、Sam Altman、OpenAI] Why trust is a big question at the Elon Musk-OpenAI trial | TechCrunch
-  摘要：A big theme in the trial’s final days was whether OpenAI CEO Sam Altman is trustworthy.
-- [Anthropic] Marketing operating system Nectar Social raises $30M Series A led by Menlo | TechCrunch
-  摘要：AI-powered marketing platform Nectar Social announced Thursday that it raised a $30 million Series A round led by Menlo Ventures and its Anthology Fund, which was created alongside Anthropic.
-- [OpenAI] OpenAI co-founder Greg Brockman takes charge of product strategy | TechCrunch
-  摘要：OpenAI&#x27;s latest shakeup comes as the company reportedly plans to combine ChatGPT and its programming product Codex.
-- [OpenAI、Anthropic] Claude’s next enterprise battle is not models: it’s the agent control plane | VentureBeat
-  摘要：&lt;p&gt;&lt;i&gt;New VB Pulse data shows Microsoft and OpenAI leading enterprise agent orchestration, but Anthropic’s first measurable foothold points to a larger fight over who controls the infrastructure where AI agents run.&lt;/i&gt;&lt;
-- [OpenAI] OpenAI keeps shuffling its executives in bid to win AI agent battle | The Verge AI
-  摘要：OpenAI announced yet another reorganization Friday, consolidating certain areas and making company president Greg Brockman the official lead of all things product. In a memo viewed by The Verge, Brockman wrote that since
-- [Elon Musk、Sam Altman、OpenAI] Musk v. Altman week 3: Elon Musk and Sam Altman traded blows over each other’s credibility. Now the jury will pick a side. | MIT Tech
-  摘要：In the final week of the Musk v. Altman trial, lawyers traded blows over Elon Musk’s and OpenAI CEO Sam Altman’s credibility. Altman was grilled on his alleged history of lying and self-dealing involving companies that d
+    <!-- ===== LEFT COLUMN ===== -->
+    <div class="col-left">
 
-## AI模型能力榜单参考
-静态参考榜单，用于早报版式和产业映射；正式投资判断请结合当日官方榜单。
-- #1 Claude Sonnet / Opus 系列 (Anthropic, 海外)
-- #2 GPT 系列 (OpenAI, 海外)
-- #3 Gemini 系列 (Google, 海外)
-- #4 DeepSeek / Qwen / Kimi / GLM (中国模型厂商, 国内)</pre>
-<h2>今日关注</h2>
-<ul>
-<li>关注国内宏观数据、政策表态与市场成交变化。</li>
-<li>关注海外利率预期、科技股财报与大宗商品波动。</li>
-<li>关注 AI 算力、模型迭代及相关产业链公告。</li>
-</ul>
-<p>免责声明：本早报由自动化程序基于公开数据生成，仅供信息参考，不构成投资建议。</p>
-</main>
-</body>
-</html>
+      <!-- 今日导读 -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon icon-gold">📋</div>
+          <span class="section-title">今日导读</span>
+          <span class="section-badge">TOP 8 · 晨会必读</span>
+        </div>
+        <div class="card">
+          <ul class="digest-list">
+            <li>A股四大指数全线收跌，科创50领跌1.67%，市场情绪偏谨慎；中国4月经济数据低于预期，零售销售增速创2022年以来新低，拖累风险偏好。</li>
+            <li>中国4月制造业PMI维持扩张区间（50.3），但非制造业PMI跌破荣枯线（49.4），内需修复分化信号值得关注。</li>
+            <li>特朗普-习近平峰会后，中美双方就大豆、稀土等领域达成部分协议，但台湾问题仍是核心分歧，贸易关税走向存在不确定性。</li>
+            <li>巴菲特旗下伯克希尔·哈撒韦重返航空业，以逾26亿美元建仓达美航空，成为其第14大重仓股，市场解读为对美国消费复苏的信心背书。</li>
+            <li>OpenAI再度重组：联合创始人Greg Brockman正式接管全产品战略，ChatGPT与编程工具Codex或将合并，AI产品格局加速整合。</li>
+            <li>马斯克诉Altman案进入最终阶段，陪审团将就双方信誉展开裁决，OpenAI公司治理与信托责任问题持续发酵。</li>
+            <li>韩国股市波动率飙升至历史高位附近，上周外资单周净卖出132亿美元，亚太市场资金流向值得密切跟踪。</li>
+            <li>DRAM ETF（代码：DRAM）资产规模突破100亿美元，创ETF史上最快纪录，AI算力基础设施投资热度持续升温。</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 宏观脉搏 -->
+      <div class="section">
+        <div class="section-header">
+          <div class="section-icon icon-blue">📡</div>
+          <span class="section-title">宏观脉搏</span>
+          <span class="section-badge">MACRO PULSE</span>
+        </div>
+
+        <div class="alert-strip">
+          <div class="alert-label">⚠ 数据预警</div>
+          中国4月经济数据整体低于市场预期：消费、工业产出、固定资产投资增速均未达预期，零售销售增速创2022年以来新低，内需修复动能有所减弱。
+        </div>
+
+        <div class="card">
+          <table class="macro-table">
+            <thead>
+              <tr>
+                <th>指标</th>
+                <th>最新值</th>
+                <th>前值 / 参考</th>
+                <th>趋势研判</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>制造业PMI（4月）</td>
+                <td class="val-positive">50.3</td>
+                <td>同比 +2.65%</td>
+                <td>扩张区间，出口订单或受关税扰动</td>
+              </tr>
+              <tr>
+                <td>非制造业PMI（4月）</td>
+                <td class="val-negative">49.4
