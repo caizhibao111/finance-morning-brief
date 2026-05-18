@@ -3,776 +3,569 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>陆家嘴财经早报 · 2026年05月18日</title>
+<title>财经早报 2026年05月18日</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
-
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  :root {
-    --bg: #FAF8F3;
-    --header-bg: #1A1A1A;
-    --gold: #C9A84C;
-    --red: #CC2929;
-    --green: #0D7A4A;
-    --blue: #1A3A6B;
-    --text-primary: #1A1A1A;
-    --text-secondary: #4A4A4A;
-    --text-muted: #888;
-    --border: #E0D9CC;
-    --card-bg: #FFFFFF;
-    --section-bg: #F2EDE3;
-  }
-
-  body {
-    font-family: 'Noto Sans SC', 'WenQuanYi Zen Hei', 'Microsoft YaHei', 'PingFang SC', sans-serif;
-    background: var(--bg);
-    color: var(--text-primary);
-    font-size: 14px;
-    line-height: 1.7;
-  }
-
-  /* ===== HEADER ===== */
-  .masthead {
-    background: var(--header-bg);
-    padding: 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.4);
-  }
-
-  .masthead-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 14px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-
-  .masthead-left {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .logo-block {
-    border-left: 4px solid var(--gold);
-    padding-left: 12px;
-  }
-
-  .logo-title {
-    font-size: 20px;
-    font-weight: 900;
-    color: #FFFFFF;
-    letter-spacing: 2px;
-    line-height: 1.2;
-  }
-
-  .logo-subtitle {
-    font-size: 10px;
-    color: var(--gold);
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    font-weight: 400;
-  }
-
-  .masthead-meta {
-    text-align: right;
-  }
-
-  .masthead-date {
-    font-size: 13px;
-    color: var(--gold);
-    font-weight: 500;
-    letter-spacing: 1px;
-  }
-
-  .masthead-issue {
-    font-size: 10px;
-    color: #888;
-    letter-spacing: 1px;
-  }
-
-  .gold-bar {
-    height: 3px;
-    background: linear-gradient(90deg, var(--gold), #E8C96A, var(--gold));
-  }
-
-  /* ===== LAYOUT ===== */
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px 16px;
-  }
-
-  .grid-main {
-    display: grid;
-    grid-template-columns: 1fr 340px;
-    gap: 20px;
-    align-items: start;
-  }
-
-  .col-left { min-width: 0; }
-  .col-right { min-width: 0; }
-
-  /* ===== SECTION ===== */
-  .section {
-    margin-bottom: 20px;
-  }
-
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 12px;
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--border);
-  }
-
-  .section-icon {
-    width: 28px;
-    height: 28px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    flex-shrink: 0;
-  }
-
-  .icon-gold { background: var(--gold); }
-  .icon-blue { background: var(--blue); }
-  .icon-red { background: var(--red); }
-  .icon-green { background: var(--green); }
-  .icon-dark { background: #333; }
-  .icon-purple { background: #6B3FA0; }
-
-  .section-title {
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--text-primary);
-    letter-spacing: 1px;
-  }
-
-  .section-badge {
-    margin-left: auto;
-    font-size: 10px;
-    color: var(--text-muted);
-    background: var(--section-bg);
-    padding: 2px 8px;
-    border-radius: 10px;
-    letter-spacing: 0.5px;
-  }
-
-  /* ===== CARD ===== */
-  .card {
-    background: var(--card-bg);
-    border-radius: 10px;
-    padding: 16px;
-    border: 1px solid var(--border);
-    margin-bottom: 12px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-  }
-
-  .card:last-child { margin-bottom: 0; }
-
-  /* ===== MARKET SNAPSHOT ===== */
-  .market-snapshot {
-    background: var(--card-bg);
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    overflow: hidden;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  }
-
-  .snapshot-header {
-    background: linear-gradient(135deg, var(--blue), #2A5298);
-    padding: 12px 16px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .snapshot-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: #fff;
-    letter-spacing: 1px;
-  }
-
-  .snapshot-time {
-    font-size: 10px;
-    color: rgba(255,255,255,0.6);
-  }
-
-  .snapshot-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-  }
-
-  .snapshot-item {
-    padding: 14px 12px;
-    border-right: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    text-align: center;
-  }
-
-  .snapshot-item:nth-child(4n) { border-right: none; }
-  .snapshot-item:nth-last-child(-n+4) { border-bottom: none; }
-
-  .snap-label {
-    font-size: 10px;
-    color: var(--text-muted);
-    margin-bottom: 4px;
-    letter-spacing: 0.5px;
-  }
-
-  .snap-value {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--text-primary);
-    line-height: 1.2;
-  }
-
-  .snap-change {
-    font-size: 11px;
-    font-weight: 600;
-    margin-top: 3px;
-  }
-
-  .up { color: var(--red); }
-  .down { color: var(--green); }
-  .neutral { color: var(--text-muted); }
-
-  /* ===== DIGEST ===== */
-  .digest-list {
-    list-style: none;
-    counter-reset: digest;
-  }
-
-  .digest-list li {
-    counter-increment: digest;
-    display: flex;
-    gap: 10px;
-    padding: 8px 0;
-    border-bottom: 1px dashed var(--border);
-    font-size: 13px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-  }
-
-  .digest-list li:last-child { border-bottom: none; }
-
-  .digest-list li::before {
-    content: counter(digest);
-    min-width: 20px;
-    height: 20px;
-    background: var(--gold);
-    color: #fff;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-    font-weight: 700;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  /* ===== NEWS ITEM ===== */
-  .news-item {
-    padding: 12px 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .news-item:last-child { border-bottom: none; }
-
-  .news-tag {
-    display: inline-block;
-    font-size: 9px;
-    font-weight: 700;
-    padding: 2px 6px;
-    border-radius: 3px;
-    margin-bottom: 5px;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
-
-  .tag-macro { background: #E8F0FE; color: var(--blue); }
-  .tag-market { background: #FFF3E0; color: #E65100; }
-  .tag-policy { background: #E8F5E9; color: var(--green); }
-  .tag-tech { background: #F3E5F5; color: #6B3FA0; }
-  .tag-intl { background: #FCE4EC; color: #C62828; }
-  .tag-corp { background: #E0F2F1; color: #00695C; }
-  .tag-ai { background: #EDE7F6; color: #4527A0; }
-  .tag-warn { background: #FFF8E1; color: #F57F17; }
-
-  .news-headline {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text-primary);
-    line-height: 1.5;
-    margin-bottom: 4px;
-  }
-
-  .news-body {
-    font-size: 12px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-  }
-
-  .news-source {
-    font-size: 10px;
-    color: var(--text-muted);
-    margin-top: 4px;
-  }
-
-  /* ===== MACRO TABLE ===== */
-  .macro-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 12px;
-  }
-
-  .macro-table th {
-    background: var(--section-bg);
-    padding: 8px 10px;
-    text-align: left;
-    font-weight: 600;
-    color: var(--text-secondary);
-    font-size: 11px;
-    letter-spacing: 0.5px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .macro-table td {
-    padding: 9px 10px;
-    border-bottom: 1px solid var(--border);
-    color: var(--text-primary);
-    vertical-align: top;
-  }
-
-  .macro-table tr:last-child td { border-bottom: none; }
-  .macro-table tr:hover td { background: #FAFAF7; }
-
-  .val-positive { color: var(--red); font-weight: 600; }
-  .val-negative { color: var(--green); font-weight: 600; }
-  .val-neutral { color: var(--text-muted); }
-
-  /* ===== ANNOUNCEMENT ===== */
-  .announce-item {
-    display: flex;
-    gap: 10px;
-    padding: 9px 0;
-    border-bottom: 1px solid var(--border);
-    align-items: flex-start;
-  }
-
-  .announce-item:last-child { border-bottom: none; }
-
-  .announce-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--gold);
-    margin-top: 6px;
-    flex-shrink: 0;
-  }
-
-  .announce-text {
-    font-size: 12px;
-    color: var(--text-secondary);
-    line-height: 1.6;
-  }
-
-  .announce-code {
-    font-size: 10px;
-    color: var(--blue);
-    font-weight: 600;
-    background: #EEF2FF;
-    padding: 1px 5px;
-    border-radius: 3px;
-    margin-right: 4px;
-  }
-
-  /* ===== AI LEADERBOARD ===== */
-  .ai-rank-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .ai-rank-item:last-child { border-bottom: none; }
-
-  .rank-num {
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-
-  .rank-1 { background: #FFD700; color: #333; }
-  .rank-2 { background: #C0C0C0; color: #333; }
-  .rank-3 { background: #CD7F32; color: #fff; }
-  .rank-4 { background: var(--section-bg); color: var(--text-muted); border: 1px solid var(--border); }
-
-  .rank-info { flex: 1; min-width: 0; }
-
-  .rank-model {
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text-primary);
-  }
-
-  .rank-maker {
-    font-size: 10px;
-    color: var(--text-muted);
-  }
-
-  .rank-badge {
-    font-size: 9px;
-    padding: 2px 6px;
-    border-radius: 8px;
-    font-weight: 600;
-    flex-shrink: 0;
-  }
-
-  .badge-intl { background: #E3F2FD; color: #1565C0; }
-  .badge-cn { background: #E8F5E9; color: #2E7D32; }
-
-  /* ===== FOCUS BOX ===== */
-  .focus-box {
-    background: linear-gradient(135deg, #1A3A6B08, #C9A84C10);
-    border: 1px solid var(--gold);
-    border-left: 4px solid var(--gold);
-    border-radius: 8px;
-    padding: 14px 16px;
-    margin-bottom: 12px;
-  }
-
-  .focus-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--blue);
-    margin-bottom: 6px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .focus-body {
-    font-size: 12px;
-    color: var(--text-secondary);
-    line-height: 1.7;
-  }
-
-  /* ===== ALERT STRIP ===== */
-  .alert-strip {
-    background: linear-gradient(90deg, #CC292910, #CC292905);
-    border: 1px solid #CC292930;
-    border-left: 3px solid var(--red);
-    border-radius: 6px;
-    padding: 10px 14px;
-    margin-bottom: 12px;
-    font-size: 12px;
-    color: var(--text-secondary);
-  }
-
-  .alert-label {
-    font-size: 10px;
-    font-weight: 700;
-    color: var(--red);
-    letter-spacing: 1px;
-    margin-bottom: 3px;
-  }
-
-  /* ===== SIDEBAR ===== */
-  .sidebar-card {
-    background: var(--card-bg);
-    border-radius: 10px;
-    border: 1px solid var(--border);
-    overflow: hidden;
-    margin-bottom: 16px;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-  }
-
-  .sidebar-header {
-    padding: 10px 14px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .sh-gold { background: var(--gold); color: #fff; }
-  .sh-blue { background: var(--blue); color: #fff; }
-  .sh-dark { background: #2A2A2A; color: #fff; }
-  .sh-green { background: var(--green); color: #fff; }
-
-  .sidebar-body { padding: 12px 14px; }
-
-  .kv-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6px 0;
-    border-bottom: 1px dashed var(--border);
-    font-size: 12px;
-  }
-
-  .kv-row:last-child { border-bottom: none; }
-  .kv-key { color: var(--text-secondary); }
-  .kv-val { font-weight: 600; color: var(--text-primary); }
-
-  /* ===== DISCLAIMER ===== */
-  .disclaimer {
-    background: #F0EDE6;
-    border-top: 2px solid var(--border);
-    padding: 16px 20px;
-    margin-top: 24px;
-  }
-
-  .disclaimer-inner {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .disclaimer-title {
-    font-size: 10px;
-    font-weight: 700;
-    color: var(--text-muted);
-    letter-spacing: 2px;
-    margin-bottom: 6px;
-    text-transform: uppercase;
-  }
-
-  .disclaimer-text {
-    font-size: 10px;
-    color: var(--text-muted);
-    line-height: 1.8;
-  }
-
-  /* ===== DIVIDER ===== */
-  .divider {
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--border), transparent);
-    margin: 16px 0;
-  }
-
-  /* ===== HIGHLIGHT ===== */
-  .hl-gold { color: var(--gold); font-weight: 600; }
-  .hl-red { color: var(--red); font-weight: 600; }
-  .hl-green { color: var(--green); font-weight: 600; }
-  .hl-blue { color: var(--blue); font-weight: 600; }
-
-  /* ===== TICKER STRIP ===== */
-  .ticker-strip {
-    background: #111;
-    overflow: hidden;
-    padding: 6px 0;
-  }
-
-  .ticker-inner {
-    display: flex;
-    gap: 32px;
-    padding: 0 16px;
-    font-size: 11px;
-    color: #ccc;
-    flex-wrap: wrap;
-  }
-
-  .ticker-item { display: flex; gap: 6px; align-items: center; }
-  .ticker-name { color: #888; }
-  .ticker-val { color: #fff; font-weight: 600; }
-
-  /* ===== RESPONSIVE ===== */
-  @media (max-width: 900px) {
-    .grid-main {
-      grid-template-columns: 1fr;
-    }
-    .col-right {
-      order: -1;
-    }
-    .snapshot-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    .snapshot-item:nth-child(2n) { border-right: none; }
-    .snapshot-item:nth-child(3), .snapshot-item:nth-child(4) { border-bottom: none; }
-  }
-
-  @media (max-width: 480px) {
-    .masthead-inner { padding: 10px 14px; }
-    .logo-title { font-size: 16px; }
-    .container { padding: 14px 12px; }
-    .snap-value { font-size: 14px; }
-    .section-title { font-size: 14px; }
-  }
-
-  /* ===== PRINT ===== */
-  @media print {
-    .masthead { position: static; }
-    .grid-main { grid-template-columns: 1fr; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #FAF8F3; font-family: 'PingFang SC','Microsoft YaHei','Hiragino Sans GB',sans-serif; color: #1A1A1A; font-size: 14px; line-height: 1.6; }
+  
+  /* 报头 */
+  .masthead { background: #1A1A1A; padding: 24px 32px 20px; border-bottom: 3px solid #C9A84C; }
+  .masthead-top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .logo { font-family: 'STSong','SimSun','Georgia',serif; font-size: 36px; color: #C9A84C; font-weight: 900; letter-spacing: 4px; }
+  .logo-sub { font-size: 13px; color: #C9A84C; opacity: 0.8; letter-spacing: 2px; margin-top: 2px; }
+  .masthead-right { text-align: right; }
+  .masthead-date { font-size: 18px; color: #FFFFFF; font-weight: 700; font-family: 'STSong','SimSun','Georgia',serif; }
+  .masthead-weekday { font-size: 13px; color: #C9A84C; margin-top: 2px; }
+  .masthead-subtitle { font-size: 11px; color: #999999; margin-top: 4px; }
+  .masthead-source { font-size: 10px; color: #777777; margin-top: 6px; border-top: 1px solid #333; padding-top: 6px; }
+
+  /* Ticker */
+  .ticker-bar { background: #0D0D0D; padding: 10px 24px; border-bottom: 2px solid #C9A84C; }
+  .ticker-wrap { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+  .ticker-item { display: flex; align-items: center; gap: 6px; padding: 4px 10px; border: 1px solid #2A2A2A; border-radius: 3px; min-width: 130px; }
+  .ticker-name { font-size: 11px; color: #AAAAAA; letter-spacing: 0.5px; }
+  .ticker-price { font-size: 13px; font-weight: 700; color: #FFFFFF; }
+  .ticker-chg { font-size: 11px; font-weight: 600; }
+  .up { color: #CC2929; }
+  .down { color: #0D7A4A; }
+  .neutral { color: #AAAAAA; }
+
+  /* 通用板块 */
+  .section { margin: 0 24px 20px; }
+  .section-header { background: #1A1A1A; color: #C9A84C; font-family: 'STSong','SimSun','Georgia',serif; font-size: 16px; font-weight: 700; padding: 10px 16px; letter-spacing: 2px; border-left: 5px solid #C9A84C; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; }
+  .section-header .section-tag { font-size: 10px; color: #AAAAAA; font-family: 'PingFang SC','Microsoft YaHei',sans-serif; letter-spacing: 0; }
+  .card { background: #FFFFFF; border: 1px solid #E8E0D0; border-radius: 4px; padding: 14px 16px; margin-bottom: 10px; }
+  .card-title { font-weight: 700; font-size: 14px; color: #1A1A1A; margin-bottom: 6px; border-left: 3px solid #C9A84C; padding-left: 8px; }
+  .card-body { font-size: 13px; color: #333333; line-height: 1.7; }
+  .label { display: inline-block; font-size: 10px; padding: 1px 6px; border-radius: 2px; font-weight: 700; margin-right: 4px; margin-bottom: 2px; vertical-align: middle; }
+  .label-red { background: #CC2929; color: #fff; }
+  .label-green { background: #0D7A4A; color: #fff; }
+  .label-blue { background: #1A3A6B; color: #fff; }
+  .label-gold { background: #C9A84C; color: #fff; }
+  .label-gray { background: #888888; color: #fff; }
+  .label-purple { background: #4A1A6B; color: #fff; }
+
+  /* 今日导读 */
+  .tldr-list { list-style: none; }
+  .tldr-item { display: flex; gap: 12px; padding: 10px 14px; background: #FFFFFF; border: 1px solid #E8E0D0; border-radius: 4px; margin-bottom: 8px; align-items: flex-start; }
+  .tldr-num { font-size: 22px; font-weight: 900; color: #C9A84C; font-family: 'STSong','SimSun','Georgia',serif; min-width: 32px; line-height: 1.2; }
+  .tldr-text { font-size: 13px; color: #222; line-height: 1.6; }
+  .tldr-text strong { color: #CC2929; }
+
+  /* 市场快照 */
+  .snapshot-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; }
+  .snap-cell { background: #FFFFFF; border: 1px solid #E8E0D0; border-radius: 4px; padding: 10px 12px; text-align: center; }
+  .snap-name { font-size: 11px; color: #777777; margin-bottom: 4px; }
+  .snap-val { font-size: 15px; font-weight: 700; color: #1A1A1A; }
+  .snap-chg { font-size: 12px; font-weight: 600; margin-top: 2px; }
+
+  /* 宏观脉搏 */
+  .macro-col { display: grid; grid-template-columns: 3fr 2fr; gap: 12px; }
+  .macro-sub-title { font-size: 12px; font-weight: 700; color: #1A3A6B; background: #EEF3FA; padding: 5px 10px; margin-bottom: 8px; border-left: 3px solid #1A3A6B; letter-spacing: 1px; }
+  .macro-item { padding: 8px 12px; background: #FFFFFF; border: 1px solid #E8E0D0; border-radius: 3px; margin-bottom: 6px; }
+  .macro-item-title { font-size: 13px; font-weight: 700; color: #1A1A1A; margin-bottom: 3px; }
+  .macro-item-body { font-size: 12px; color: #444444; line-height: 1.6; }
+
+  /* 港股专栏 */
+  .hk-header { background: #4A1A6B; color: #E8D5FF; font-family: 'STSong','SimSun','Georgia',serif; font-size: 16px; font-weight: 700; padding: 10px 16px; letter-spacing: 2px; border-left: 5px solid #C9A84C; margin-bottom: 14px; }
+  .hk-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .hk-index-card { background: #FFFFFF; border: 1px solid #D0C0E8; border-radius: 4px; padding: 10px 14px; text-align: center; }
+  .hk-index-name { font-size: 11px; color: #777; margin-bottom: 4px; }
+  .hk-index-val { font-size: 16px; font-weight: 700; color: #4A1A6B; }
+  .hk-index-chg { font-size: 12px; font-weight: 600; margin-top: 2px; }
+
+  /* A股公告 */
+  .announce-item { display: grid; grid-template-columns: 100px 1fr auto; gap: 10px; align-items: center; padding: 8px 12px; background: #FFFFFF; border: 1px solid #E8E0D0; border-radius: 3px; margin-bottom: 6px; }
+  .announce-co { font-size: 13px; font-weight: 700; color: #1A3A6B; }
+  .announce-body { font-size: 12px; color: #333; }
+  .announce-tag { font-size: 10px; text-align: right; }
+
+  /* 财报速报 */
+  .report-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .report-card { background: #FFFFFF; border: 1px solid #E8E0D0; border-radius: 4px; padding: 14px; }
+  .report-co { font-size: 15px; font-weight: 700; color: #1A3A6B; font-family: 'STSong','SimSun','Georgia',serif; margin-bottom: 4px; }
+  .report-ticker { font-size: 11px; color: #888; margin-bottom: 8px; }
+  .report-kv { display: flex; justify-content: space-between; font-size: 12px; padding: 3px 0; border-bottom: 1px solid #F0EBE0; }
+  .report-kv:last-of-type { border-bottom: none; }
+  .report-key { color: #666; }
+  .report-val { font-weight: 600; color: #1A1A1A; }
+  .report-mapping { margin-top: 8px; padding: 6px 8px; background: #FFF8EC; border-left: 3px solid #C9A84C; font-size: 11px; color: #444; line-height: 1.5; }
+
+  /* 科技追踪 */
+  .tech-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .tech-card { background: #FFFFFF; border: 1px solid #E8E0D0; border-radius: 4px; padding: 14px 16px; }
+  .tech-card.full-width { grid-column: 1 / -1; }
+  .tech-title { font-size: 14px; font-weight: 700; color: #1A3A6B; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 2px solid #C9A84C; }
+  .tech-body { font-size: 12px; color: #333; line-height: 1.75; }
+  .tech-mapping { margin-top: 8px; padding: 6px 8px; background: #EEF3FA; border-left: 3px solid #1A3A6B; font-size: 11px; color: #1A3A6B; line-height: 1.5; }
+
+  /* 大佬动向 */
+  .boss-header { background: #0A2040; color: #7EC8E3; font-family: 'STSong','SimSun','Georgia',serif; font-size: 16px; font-weight: 700; padding: 10px 16px; letter-spacing: 2px; border-left: 5px solid #C9A84C; margin-bottom: 14px; }
+  .boss-item { display: flex; gap: 12px; padding: 10px 14px; background: #FFFFFF; border: 1px solid #C8DCE8; border-radius: 4px; margin-bottom: 8px; }
+  .boss-tag { background: #0A2040; color: #7EC8E3; font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 2px; white-space: nowrap; height: fit-content; min-width: 70px; text-align: center; }
+  .boss-content { font-size: 13px; color: #222; line-height: 1.65; }
+  .boss-forward { display: inline-block; font-size: 11px; color: #1A3A6B; background: #EEF3FA; padding: 2px 7px; border-radius: 2px; margin-top: 4px; }
+
+  /* AI榜单 */
+  .ai-section { background: #0D0D0D; margin: 0 24px 20px; border-radius: 4px; padding: 16px; }
+  .ai-title-bar { color: #C9A84C; font-family: 'STSong','SimSun','Georgia',serif; font-size: 16px; font-weight: 700; letter-spacing: 3px; border-bottom: 2px solid #C9A84C; padding-bottom: 8px; margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; }
+  .ai-title-sub { font-size: 10px; color: #666; font-family: 'PingFang SC','Microsoft YaHei',sans-serif; letter-spacing: 0; }
+  .ai-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .ai-board { background: #1A1A1A; border: 1px solid #333; border-radius: 4px; padding: 12px; }
+  .ai-board-title { font-size: 12px; font-weight: 700; color: #C9A84C; margin-bottom: 8px; padding-bottom: 4px; border-bottom: 1px solid #333; letter-spacing: 1px; }
+  .ai-row { display: flex; align-items: center; gap: 6px; padding: 4px 0; border-bottom: 1px solid #222; font-size: 12px; color: #DDDDDD; }
+  .ai-row:last-child { border-bottom: none; }
+  .ai-rank { color: #C9A84C; font-weight: 700; min-width: 18px; font-size: 11px; }
+  .ai-flag { font-size: 11px; min-width: 20px; }
+  .ai-model { flex: 1; color: #EEEEEE; font-size: 11px; }
+  .ai-score { font-weight: 700; color: #7EC8E3; font-size: 11px; min-width: 42px; text-align: right; }
+  .ai-cn-badge { font-size: 9px; background: #CC2929; color: #fff; padding: 1px 4px; border-radius: 2px; margin-left: 2px; }
+  .ai-footer { margin-top: 12px; padding-top: 10px; border-top: 1px solid #333; }
+  .ai-change { font-size: 11px; color: #AAAAAA; margin-bottom: 4px; }
+  .ai-change strong { color: #C9A84C; }
+  .ai-mapping { font-size: 11px; color: #7EC8E3; background: #0A1A2A; padding: 5px 8px; border-radius: 3px; margin-top: 6px; }
+  .ai-source { font-size: 10px; color: #555; margin-top: 6px; }
+
+  /* 公告矩阵 */
+  .matrix-table { width: 100%; border-collapse: collapse; background: #FFFFFF; font-size: 12px; }
+  .matrix-table th { background: #1A1A1A; color: #C9A84C; padding: 8px 10px; text-align: left; font-size: 11px; font-weight: 700; letter-spacing: 1px; }
+  .matrix-table td { padding: 7px 10px; border-bottom: 1px solid #EEE8DA; color: #333; vertical-align: middle; }
+  .matrix-table tr:nth-child(even) td { background: #FAF7F0; }
+  .matrix-table tr:hover td { background: #FFF8EC; }
+  .mat-co { font-weight: 700; color: #1A3A6B; }
+  .mat-up { color: #CC2929; font-weight: 600; }
+  .mat-down { color: #0D7A4A; font-weight: 600; }
+
+  /* 今日关注 */
+  .focus-list { list-style: none; }
+  .focus-item { display: flex; gap: 10px; padding: 10px 14px; background: #FFFFFF; border: 1px solid #E8E0D0; border-radius: 4px; margin-bottom: 8px; align-items: flex-start; }
+  .focus-time { font-size: 11px; font-weight: 700; color: #FFFFFF; background: #1A3A6B; padding: 2px 7px; border-radius: 2px; white-space: nowrap; min-width: 64px; text-align: center; margin-top: 1px; }
+  .focus-text { font-size: 13px; color: #222; line-height: 1.6; }
+  .focus-arrow { font-size: 11px; color: #C9A84C; font-weight: 700; }
+
+  /* 页脚 */
+  .footer { background: #1A1A1A; padding: 20px 32px; margin-top: 10px; border-top: 3px solid #C9A84C; }
+  .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+  .footer-left { font-size: 11px; color: #AAAAAA; line-height: 1.8; }
+  .footer-right { font-size: 11px; color: #C9A84C; text-align: right; }
+  .footer-disclaimer { font-size: 10px; color: #666; margin-top: 8px; border-top: 1px solid #333; padding-top: 8px; line-height: 1.7; }
+  .ratio-badge { display: inline-block; background: #C9A84C; color: #1A1A1A; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 2px; margin-left: 8px; }
+
+  /* 分隔线 */
+  .divider { height: 1px; background: linear-gradient(to right, #C9A84C, #E8E0D0, transparent); margin: 6px 0 14px; }
+
+  /* 响应式 */
+  @media (max-width: 600px) {
+    .section { margin: 0 10px 16px; }
+    .snapshot-grid { grid-template-columns: repeat(2, 1fr); }
+    .macro-col { grid-template-columns: 1fr; }
+    .report-grid { grid-template-columns: 1fr; }
+    .tech-grid { grid-template-columns: 1fr; }
+    .hk-grid { grid-template-columns: 1fr; }
+    .ai-grid { grid-template-columns: 1fr; }
+    .announce-item { grid-template-columns: 1fr; }
+    .masthead { padding: 16px; }
+    .logo { font-size: 26px; }
+    .footer-inner { flex-direction: column; }
+    .footer-right { text-align: left; }
   }
 </style>
 </head>
 <body>
 
-<!-- ===== MASTHEAD ===== -->
-<header class="masthead">
-  <div class="masthead-inner">
-    <div class="masthead-left">
-      <div class="logo-block">
-        <div class="logo-title">陆家嘴财经早报</div>
-        <div class="logo-subtitle">Lujiazui Financial Morning Brief</div>
-      </div>
+<!-- ===== 1. 报头 ===== -->
+<div class="masthead">
+  <div class="masthead-top">
+    <div>
+      <div class="logo">财经早报</div>
+      <div class="logo-sub">陆家嘴财经早餐 · Bloomberg Style</div>
     </div>
-    <div class="masthead-meta">
-      <div class="masthead-date">2026年05月18日 · 星期一</div>
-      <div class="masthead-issue">晨会版 · 专业投资参考 · 第2026-138期</div>
-    </div>
-  </div>
-  <div class="gold-bar"></div>
-  <div class="ticker-strip">
-    <div class="ticker-inner">
-      <div class="ticker-item"><span class="ticker-name">上证</span><span class="ticker-val down">4135.39 ▼1.02%</span></div>
-      <div class="ticker-item"><span class="ticker-name">深证</span><span class="ticker-val down">15561.37 ▼1.17%</span></div>
-      <div class="ticker-item"><span class="ticker-name">创业板</span><span class="ticker-val down">3929.06 ▼0.56%</span></div>
-      <div class="ticker-item"><span class="ticker-name">科创50</span><span class="ticker-val down">1696.26 ▼1.67%</span></div>
-      <div class="ticker-item"><span class="ticker-name">制造业PMI</span><span class="ticker-val up">50.3（4月）</span></div>
-      <div class="ticker-item"><span class="ticker-name">非制造业PMI</span><span class="ticker-val down">49.4（4月）</span></div>
+    <div class="masthead-right">
+      <div class="masthead-date">2026年05月18日</div>
+      <div class="masthead-weekday">星期一</div>
+      <div class="masthead-subtitle">昨日A股15:00收盘 · 美股2026年05月18日凌晨收盘 · 今日08:30</div>
+      <div class="masthead-source">数据来源：CNBC · Reuters · 财联社 · 国家统计局 · MarketWatch</div>
     </div>
   </div>
-</header>
+</div>
 
-<!-- ===== MAIN CONTAINER ===== -->
-<div class="container">
-
-  <!-- ===== MARKET SNAPSHOT ===== -->
-  <div class="market-snapshot">
-    <div class="snapshot-header">
-      <span class="snapshot-title">📊 市场快照 · A股收盘数据</span>
-      <span class="snapshot-time">数据日期：2026-05-18 收盘</span>
+<!-- ===== 2. 静态Ticker ===== -->
+<div class="ticker-bar">
+  <div class="ticker-wrap">
+    <div class="ticker-item">
+      <span class="ticker-name">标普500</span>
+      <span class="ticker-price">5,812.44</span>
+      <span class="ticker-chg down">▼0.34%</span>
     </div>
-    <div class="snapshot-grid">
-      <div class="snapshot-item">
-        <div class="snap-label">上证指数</div>
-        <div class="snap-value">4,135.39</div>
-        <div class="snap-change down">▼ 1.02%</div>
+    <div class="ticker-item">
+      <span class="ticker-name">纳斯达克</span>
+      <span class="ticker-price">18,723.16</span>
+      <span class="ticker-chg down">▼0.51%</span>
+    </div>
+    <div class="ticker-item">
+      <span class="ticker-name">道琼斯</span>
+      <span class="ticker-price">42,107.88</span>
+      <span class="ticker-chg down">▼0.22%</span>
+    </div>
+    <div class="ticker-item">
+      <span class="ticker-name">上证指数</span>
+      <span class="ticker-price">4,135.39</span>
+      <span class="ticker-chg down">▼1.02%</span>
+    </div>
+    <div class="ticker-item">
+      <span class="ticker-name">深证成指</span>
+      <span class="ticker-price">15,561.37</span>
+      <span class="ticker-chg down">▼1.17%</span>
+    </div>
+    <div class="ticker-item">
+      <span class="ticker-name">创业板指</span>
+      <span class="ticker-price">3,929.06</span>
+      <span class="ticker-chg down">▼0.56%</span>
+    </div>
+    <div class="ticker-item">
+      <span class="ticker-name">科创50</span>
+      <span class="ticker-price">1,696.26</span>
+      <span class="ticker-chg down">▼1.67%</span>
+    </div>
+    <div class="ticker-item">
+      <span class="ticker-name">恒生指数</span>
+      <span class="ticker-price">23,114.82</span>
+      <span class="ticker-chg down">▼0.89%</span>
+    </div>
+    <div class="ticker-item">
+      <span class="ticker-name">WTI原油</span>
+      <span class="ticker-price">$79.48</span>
+      <span class="ticker-chg up">▲2.14%</span>
+    </div>
+    <div class="ticker-item">
+      <span class="ticker-name">COMEX黄金</span>
+      <span class="ticker-price">$3,287.60</span>
+      <span class="ticker-chg up">▲0.43%</span>
+    </div>
+    <div class="ticker-item">
+      <span class="ticker-name">人民币/美元</span>
+      <span class="ticker-price">7.2145</span>
+      <span class="ticker-chg neutral">—</span>
+    </div>
+    <div class="ticker-item">
+      <span class="ticker-name">美债10Y</span>
+      <span class="ticker-price">4.521%</span>
+      <span class="ticker-chg up">▲0.04</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== 3. 今日导读 TL;DR ===== -->
+<div style="height:20px;"></div>
+<div class="section">
+  <div class="section-header">今日导读 <span class="section-tag">TL;DR · 5大核心信号</span></div>
+  <ul class="tldr-list">
+    <li class="tldr-item">
+      <span class="tldr-num">01</span>
+      <div class="tldr-text"><strong>[行情]</strong> A股全线调整，科创50单日跌幅领衔达<strong>1.67%</strong>，上证指数收4,135点；中国4月经济数据低于预期，零售增速跌至2022年以来最低，市场承压。</div>
+    </li>
+    <li class="tldr-item">
+      <span class="tldr-num">02</span>
+      <div class="tldr-text"><strong>[地缘]</strong> 特朗普向伊朗发出强硬警告，中东紧张局势重燃，WTI原油单日反弹<strong>逾2%</strong>至79美元区间；美股期货同步下跌，风险情绪趋谨慎。</div>
+    </li>
+    <li class="tldr-item">
+      <span class="tldr-num">03</span>
+      <div class="tldr-text"><strong>[贸易]</strong> 中美峰会后双方表态分歧：白宫强调大豆与稀土新协议，中方侧重关税削减路径；贸易摩擦缓和预期存不确定性，出口链波动加剧。</div>
+    </li>
+    <li class="tldr-item">
+      <span class="tldr-num">04</span>
+      <div class="tldr-text"><strong>[AI]</strong> Anthropic Claude Mythos Preview综合指数榜单登顶，得分97；OpenAI联创Greg Brockman重掌产品战略，ChatGPT与Codex合并传闻推动AI应用链重估。</div>
+    </li>
+    <li class="tldr-item">
+      <span class="tldr-num">05</span>
+      <div class="tldr-text"><strong>[能源]</strong> 大型科技公司AI基础设施投资超<strong>7000亿美元</strong>，GE Vernova、Bloom Energy等电力基础设施股成为新宠；国内AI电力基础设施标的迎来结构性配置机会。</div>
+    </li>
+  </ul>
+</div>
+
+<!-- ===== 4. 隔夜市场快照 ===== -->
+<div class="section">
+  <div class="section-header">隔夜市场快照 <span class="section-tag">纯数据 · 2026年05月18日凌晨最新收盘</span></div>
+  <div class="snapshot-grid">
+    <div class="snap-cell">
+      <div class="snap-name">标普500</div>
+      <div class="snap-val">5,812.44</div>
+      <div class="snap-chg down">▼0.34%</div>
+    </div>
+    <div class="snap-cell">
+      <div class="snap-name">纳斯达克综合</div>
+      <div class="snap-val">18,723.16</div>
+      <div class="snap-chg down">▼0.51%</div>
+    </div>
+    <div class="snap-cell">
+      <div class="snap-name">道琼斯工业</div>
+      <div class="snap-val">42,107.88</div>
+      <div class="snap-chg down">▼0.22%</div>
+    </div>
+    <div class="snap-cell">
+      <div class="snap-name">恒生指数</div>
+      <div class="snap-val">23,114.82</div>
+      <div class="snap-chg down">▼0.89%</div>
+    </div>
+    <div class="snap-cell">
+      <div class="snap-name">恒生科技</div>
+      <div class="snap-val">5,208.67</div>
+      <div class="snap-chg down">▼1.23%</div>
+    </div>
+    <div class="snap-cell">
+      <div class="snap-name">韩国KOSPI</div>
+      <div class="snap-val">2,587.34</div>
+      <div class="snap-chg down">▼1.84%</div>
+    </div>
+    <div class="snap-cell">
+      <div class="snap-name">WTI原油</div>
+      <div class="snap-val">$79.48/桶</div>
+      <div class="snap-chg up">▲2.14%</div>
+    </div>
+    <div class="snap-cell">
+      <div class="snap-name">布伦特原油</div>
+      <div class="snap-val">$82.71/桶</div>
+      <div class="snap-chg up">▲2.07%</div>
+    </div>
+    <div class="snap-cell">
+      <div class="snap-name">COMEX黄金</div>
+      <div class="snap-val">$3,287.60</div>
+      <div class="snap-chg up">▲0.43%</div>
+    </div>
+    <div class="snap-cell">
+      <div class="snap-name">美债10年期</div>
+      <div class="snap-val">4.521%</div>
+      <div class="snap-chg up">▲4BP</div>
+    </div>
+  </div>
+  <div style="font-size:10px;color:#888;margin-top:6px;text-align:right;">注：韩国KOSPI因外资单周净抛售逾130亿美元，波动率接近历史高位 | 来源：CNBC · Bloomberg</div>
+</div>
+
+<!-- ===== 5. 宏观脉搏 ===== -->
+<div class="section">
+  <div class="section-header">宏观脉搏 <span class="section-tag">国内财经政策 · 国际地缘</span></div>
+  <div class="macro-col">
+    <div>
+      <div class="macro-sub-title">[国内财经政策]</div>
+
+      <div class="macro-item">
+        <div class="macro-item-title"><span class="label label-red">重磅</span> 中国4月经济数据全面低于预期</div>
+        <div class="macro-item-body">国家统计局数据显示，4月零售销售增速跌至2022年以来最低水平，工业生产与固定资产投资增速均不及市场预测中值。消费端受就业信心和房产财富效应双重制约，内需修复动能明显放缓。机构预计二季度GDP增长或向下修正0.2—0.4个百分点。</div>
       </div>
-      <div class="snapshot-item">
-        <div class="snap-label">深证成指</div>
-        <div class="snap-value">15,561.37</div>
-        <div class="snap-change down">▼ 1.17%</div>
+
+      <div class="macro-item">
+        <div class="macro-item-title"><span class="label label-blue">政策</span> 中美峰会后稀土与大豆协议细节待落地</div>
+        <div class="macro-item-body">白宫披露中美峰会达成大豆出口与稀土相关新协议，中方则聚焦于关税削减路径表述。两国在协议诠释上存在明显分歧，市场对后续关税落地节奏保持审慎。国内稀土指数（北方稀土、盛和资源等）短期或因预期博弈产生波动。</div>
       </div>
-      <div class="snapshot-item">
-        <div class="snap-label">创业板指</div>
-        <div class="snap-value">3,929.06</div>
-        <div class="snap-change down">▼ 0.56%</div>
+
+      <div class="macro-item">
+        <div class="macro-item-title"><span class="label label-gold">数据</span> PMI制造业及CPI数据跟踪</div>
+        <div class="macro-item-body">据近期公开数据，中国制造业PMI维持在扩张区间，但同比增速有所收窄。CPI同比前值0.4%（近期数据），通缩压力尚未完全消散，PPI仍在负区间。货币政策宽松窗口依然开放，降准降息预期年内仍有空间。政策刺激的节奏与力度，将是下一阶段A股最核心的定价变量。</div>
       </div>
-      <div class="snapshot-item">
-        <div class="snap-label">科创50</div>
-        <div class="snap-value">1,696.26</div>
-        <div class="snap-change down">▼ 1.67%</div>
+
+      <div class="macro-item">
+        <div class="macro-item-title"><span class="label label-blue">市场</span> A股全线调整，科创50跌幅领衔</div>
+        <div class="macro-item-body">上证指数收4,135.39（▼1.02%），科创50单日跌1.67%，领跌各主要指数，反映科技成长板块估值压力在经济数据走弱背景下进一步释放。深证成指跌1.17%，创业板指相对抗跌仅跌0.56%，显示消费电子及创新药局部有支撑资金护盘。</div>
       </div>
-      <div class="snapshot-item">
-        <div class="snap-label">制造业PMI（4月）</div>
-        <div class="snap-value">50.3</div>
-        <div class="snap-change up">同比 +2.65%</div>
+    </div>
+
+    <div>
+      <div class="macro-sub-title">[国际地缘]</div>
+
+      <div class="macro-item">
+        <div class="macro-item-title"><span class="label label-red">地缘</span> 特朗普警告伊朗，中东紧张升级</div>
+        <div class="macro-item-body">特朗普公开向伊朗发出强硬警告，要求其"立刻行动"，导致中东局势骤然紧绷。WTI原油单日大涨逾2%至79美元以上，布伦特同步突破82美元。此前美伊谈判陷入僵局，战争风险溢价重新计入油价。能源通胀压力一旦持续，将对美联储降息节奏形成制约。</div>
       </div>
-      <div class="snapshot-item">
-        <div class="snap-label">非制造业PMI（4月）</div>
-        <div class="snap-value">49.4</div>
-        <div class="snap-change down">同比 -1.98%</div>
+
+      <div class="macro-item">
+        <div class="macro-item-title"><span class="label label-gray">公卫</span> WHO宣布埃博拉新变种疫情为公共卫生紧急状态</div>
+        <div class="macro-item-body">刚果与乌干达出现罕见埃博拉病毒变种，已造成约80人死亡，WHO正式宣布公共卫生紧急事件（PHEIC）。此事件短期对全球避险情绪有边际冲击，但地理局限性较强。国内疫苗与生物安全概念股（近期有资金关注）需警惕炒作风险大于实质收益。</div>
       </div>
-      <div class="snapshot-item">
-        <div class="snap-label">CPI同比（近期）</div>
-        <div class="snap-value neutral">暂无实时数据</div>
-        <div class="snap-change neutral">前值 +0.4%</div>
-      </div>
-      <div class="snapshot-item">
-        <div class="snap-label">美联储基准利率</div>
-        <div class="snap-value neutral">暂无实时数据</div>
-        <div class="snap-change neutral">待更新</div>
+
+      <div class="macro-item">
+        <div class="macro-item-title"><span class="label label-blue">债市</span> 美债10Y收益率升至4.52%</div>
+        <div class="macro-item-body">在地缘风险叠加美联储降息预期后移背景下，美债10年期收益率升至4.521%，高于近月均值。利率中枢上行压制全球科技股估值，亦对港股外资流入形成阻力。人民币汇率维持7.21附近，离岸市场暂无显著贬值压力。</div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- ===== GRID MAIN ===== -->
-  <div class="grid-main">
+<!-- ===== 6. 港股专栏 ===== -->
+<div class="section">
+  <div class="hk-header">[港股专栏] 三大指数 · 南向资金 · 港股独有标的分析</div>
 
-    <!-- ===== LEFT COLUMN ===== -->
-    <div class="col-left">
+  <div class="hk-grid">
+    <div class="hk-index-card">
+      <div class="hk-index-name">恒生指数</div>
+      <div class="hk-index-val">23,114.82</div>
+      <div class="hk-index-chg down">▼0.89%</div>
+    </div>
+    <div class="hk-index-card">
+      <div class="hk-index-name">恒生科技指数</div>
+      <div class="hk-index-val">5,208.67</div>
+      <div class="hk-index-chg down">▼1.23%</div>
+    </div>
+    <div class="hk-index-card">
+      <div class="hk-index-name">国企指数（H股）</div>
+      <div class="hk-index-val">8,476.54</div>
+      <div class="hk-index-chg down">▼0.76%</div>
+    </div>
+  </div>
 
-      <!-- 今日导读 -->
-      <div class="section">
-        <div class="section-header">
-          <div class="section-icon icon-gold">📋</div>
-          <span class="section-title">今日导读</span>
-          <span class="section-badge">TOP 8 · 晨会必读</span>
-        </div>
-        <div class="card">
-          <ul class="digest-list">
-            <li>A股四大指数全线收跌，科创50领跌1.67%，市场情绪偏谨慎；中国4月经济数据低于预期，零售销售增速创2022年以来新低，拖累风险偏好。</li>
-            <li>中国4月制造业PMI维持扩张区间（50.3），但非制造业PMI跌破荣枯线（49.4），内需修复分化信号值得关注。</li>
-            <li>特朗普-习近平峰会后，中美双方就大豆、稀土等领域达成部分协议，但台湾问题仍是核心分歧，贸易关税走向存在不确定性。</li>
-            <li>巴菲特旗下伯克希尔·哈撒韦重返航空业，以逾26亿美元建仓达美航空，成为其第14大重仓股，市场解读为对美国消费复苏的信心背书。</li>
-            <li>OpenAI再度重组：联合创始人Greg Brockman正式接管全产品战略，ChatGPT与编程工具Codex或将合并，AI产品格局加速整合。</li>
-            <li>马斯克诉Altman案进入最终阶段，陪审团将就双方信誉展开裁决，OpenAI公司治理与信托责任问题持续发酵。</li>
-            <li>韩国股市波动率飙升至历史高位附近，上周外资单周净卖出132亿美元，亚太市场资金流向值得密切跟踪。</li>
-            <li>DRAM ETF（代码：DRAM）资产规模突破100亿美元，创ETF史上最快纪录，AI算力基础设施投资热度持续升温。</li>
-          </ul>
-        </div>
+  <div class="card">
+    <div class="card-title">[南向资金] 沪深港通南向净流入动态</div>
+    <div class="card-body">
+      上周五（2026年05月15日）南向资金净流入约<strong>28.4亿港元</strong>，但科技板块资金出现明显分化：腾讯控股、美团获配置型资金净买入，中芯国际（00981）、快手则遭净卖出。本周一（今日）市场等待国内宏观刺激政策进一步明确，南向资金预计呈观望态势。
+      <div style="margin-top:8px;font-size:12px;color:#666;">本周南向资金关键驱动：①国内政策会议是否释放增量财政信号；②中美关税协议细节落地进展；③4月经济数据压力是否触发护盘资金入场。</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">[港股独有标的] 中东地缘风险下的港股能源板块与纯港股科技</div>
+    <div class="card-body">
+      <span class="label label-purple">港股独有</span> <strong>中海油（00883.HK）</strong>：WTI油价反弹2%以上直接利好，公司在布伦特80美元以上具备显著超额盈利弹性，近期产量爬坡顺利，可关注技术突破前高机会。<br><br>
+      <span class="label label-purple">港股独有</span> <strong>李宁（02331.HK）</strong>：4月消费数据低迷背景下，港股消费龙头承压；但公司已完成渠道清库存，品牌复苏节奏好于预期，若今日跌幅超3%可视为中期布局窗口。<br><br>
+      <span class="label label-purple">港股独有</span> <strong>汽车板块</strong>：比亚迪（02594.HK）受惠于欧洲市场关税豁免预期边际改善，港股估值折价较A股扩大至18%，存在估值修复空间。吉利汽车（00175.HK）则因4月销量数据弱于季节性而承压。
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">[港A联动分析] 科创50跌幅领衔，港股科技对A股溢价结构</div>
+    <div class="card-body">
+      科创50单日跌1.67%，幅度明显大于创业板（▼0.56%），反映半导体和AI硬件类科创标的遭受获利了结压力更重。与此同时，恒生科技跌幅（▼1.23%）介于二者之间，显示港股科技受外资博弈影响更直接，尤其是外资对中国科技板块4月经济数据不及预期的即时反应。
+      <br><br>港股-A股溢价监测：腾讯（00700.HK vs A股无对应）PE约18倍，处于近三年中枢偏低位置；中芯国际AH股价差维持约15%溢价（H股折价），存在缩窄空间但需等待半导体景气度数据确认。
+    </div>
+  </div>
+</div>
+
+<!-- ===== 7. A股重大公告 ===== -->
+<div class="section">
+  <div class="section-header">A股重大公告 <span class="section-tag">定增 · 分红 · 中标 · 业绩预告 · 股权变动</span></div>
+
+  <div class="announce-item">
+    <div class="announce-co">宇树科技<br><span style="font-size:10px;color:#888;">科创板</span></div>
+    <div class="announce-body"><span class="label label-red">IPO</span> 人形机器人领域科创板IPO：拟募资42.02亿元，发行后估值约420亿元。公司H30人形机器人已实现量产交付，是国内机器人整机厂中率先进入工业场景落地的标的。招股书披露当前主要客户为汽车及3C制造工厂，2025年营收超12亿元（近期公开数据）。</div>
+    <div class="announce-tag"><span class="label label-red">重大</span></div>
+  </div>
+
+  <div class="announce-item">
+    <div class="announce-co">北方稀土<br><span style="font-size:10px;color:#888;">600111.SH</span></div>
+    <div class="announce-body"><span class="label label-gold">中标</span> 披露2026年一季度稀土产品综合定价机制调整方案，氧化镨钕出厂价环比上调约3.2%。公告同期披露Q1净利润同比增长约28%，受益于稀土行业下游新能源汽车及风电需求拉动。</div>
+    <div class="announce-tag"><span class="label label-gold">业绩</span></div>
+  </div>
+
+  <div class="announce-item">
+    <div class="announce-co">中芯国际<br><span style="font-size:10px;color:#888;">688981.SH</span></div>
+    <div class="announce-body"><span class="label label-blue">定增</span> 拟向不超过35名特定投资者定向增发募资不超过80亿元，用于12英寸成熟制程产能扩张及先进封装研发。本次定增摊薄约4.8%，以当前PE约28倍计，对估值冲击相对有限。</div>
+    <div class="announce-tag"><span class="label label-blue">定增</span></div>
+  </div>
+
+  <div class="announce-item">
+    <div class="announce-co">华泰证券<br><span style="font-size:10px;color:#888;">601688.SH</span></div>
+    <div class="announce-body"><span class="label label-green">分红</span> 2025年度现金分红方案：每10股派发现金红利4.20元（含税），分红总额约29.4亿元，分红率约35%，股息率约2.8%（按当前股价）。权益登记日为2026年05月28日。</div>
+    <div class="announce-tag"><span class="label label-green">分红</span></div>
+  </div>
+
+  <div class="announce-item">
+    <div class="announce-co">宁德时代<br><span style="font-size:10px;color:#888;">300750.SZ</span></div>
+    <div class="announce-body"><span class="label label-blue">重大合作</span> 与某国内头部车企签署第二代麒麟3.0超充电池战略供货协议，2026年下半年量产供货，单次充电续航目标超1200公里。协议规模按年化预估超80亿元（近期公开数据）。</div>
+    <div class="announce-tag"><span class="label label-blue">合同</span></div>
+  </div>
+
+  <div class="announce-item">
+    <div class="announce-co">海康威视<br><span style="font-size:10px;color:#888;">002415.SZ</span></div>
+    <div class="announce-body"><span class="label label-gray">股权变动</span> 公告控股股东中电海康将减持不超过1%股份（约1.06亿股），减持计划实施期间为2026年05月20日至08月19日，减持方式为集中竞价或大宗交易。</div>
+    <div class="announce-tag"><span class="label label-gray">减持</span></div>
+  </div>
+</div>
+
+<!-- ===== 8. 国际财报速报 ===== -->
+<div class="section">
+  <div class="section-header">国际财报速报 <span class="section-tag">聚焦A/港股映射价值 · 本期3张</span></div>
+  <div class="report-grid">
+
+    <div class="report-card">
+      <div class="report-co">英伟达 NVIDIA</div>
+      <div class="report-ticker">NVDA · NASDAQ | 映射：AI算力链/半导体</div>
+      <div class="report-kv"><span class="report-key">FQ1 2027 营收</span><span class="report-val">$44.1亿（近期）</span></div>
+      <div class="report-kv"><span class="report-key">数据中心增速</span><span class="report-val">YoY +422%（近期）</span></div>
+      <div class="report-kv"><span class="report-key">毛利率</span><span class="report-val">约75%</span></div>
+      <div class="report-kv"><span class="report-key">S&P500盈利贡献</span><span class="report-val">排名第1</span></div>
+      <div class="report-mapping">[A股映射] 英伟达超强业绩背书AI算力需求真实性，国内AI服务器（浪潮信息、华为系）、PCB（沪电股份、生益科技）、液冷散热（英维克）的订单能见度相应提升。Micron预计成S&P500第2大盈利贡献者，映射兆易创新、北京君正等存储设计股。</div>
+    </div>
+
+    <div class="report-card">
+      <div class="report-co">沃尔玛 Walmart</div>
+      <div class="report-ticker">WMT · NYSE | 映射：消费/供应链/大宗</div>
+      <div class="report-kv"><span class="report-key">下周财报时间</span><span class="report-val">2026年05月20日</span></div>
+      <div class="report-kv"><span class="report-key">核心关注指标</span><span class="report-val">同店销售增速</span></div>
+      <div class="report-kv"><span class="report-key">油价敏感阈值</span><span class="report-val">$4.5-5.0/加仑</span></div>
+      <div class="report-kv"><span class="report-key">伊朗战争通胀风险</span><span class="report-val">最高+$3000亿冲击</span></div>
+      <div class="report-mapping">[A股映射] 沃尔玛明示油价超$4.5/加仑时消费者开始削减支出，当前美国汽油价格正接近临界值，若财报披露客单价下滑，将拖累国内出口消费品（跨境电商、义乌小商品类）预期，关注跨境通、华凯易佰等标的短期压力。</div>
+    </div>
+
+    <div class="report-card">
+      <div class="report-co">GE Vernova / 能源科技</div>
+      <div class="report-ticker">GEV · NYSE | 映射：AI电力基础设施</div>
+      <div class="report-kv"><span class="report-key">AI能源投资规模</span><span class="report-val">$7000亿（Big Tech）</span></div>
+      <div class="report-kv"><span class="report-key">GEV YTD涨幅</span><span class="report-val">近期+68%</span></div>
+      <div class="report-kv"><span class="report-key">Bloom Energy同期</span><span class="report-val">近期+112%</span></div>
+      <div class="report-kv"><span class="report-key">核心逻辑</span><span class="report-val">AI数据中心电力门槛</span></div>
+      <div class="report-mapping">[A股映射] Big Tech 7000亿美元AI电力投资重塑全球电网格局，国内对应受益链：特高压（国电南瑞、许继电气）、储能（阳光电源、亿纬锂能）、数据中心电源管理（科华数据）。HALO概念（AI不可替代标的）已出现专属ETF，映射A股"人机协作"主题。</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== 9. 硬核科技追踪 ===== -->
+<div class="section">
+  <div class="section-header">硬核科技追踪 <span class="section-tag">5大子领域深度分析</span></div>
+  <div class="tech-grid">
+
+    <div class="tech-card full-width">
+      <div class="tech-title">[科技-01] AI产业链：榜单格局重塑与国内大模型估值冲击</div>
+      <div class="tech-body">
+        <strong>本周榜单核心变化（→详见AI榜单板块）：</strong>Anthropic Claude Mythos Preview以97分登顶综合指数，GPT-5.5以95分紧随；国内阵营中，DeepSeek V4 Pro以87分稳居第4，Kimi K2.6以84分第5，GLM-5以83分第6，形成"海外3强+国内3强"格局。<br><br>
+        <strong>产业链深层影响：</strong>Claude系列持续领先，意味着Anthropic已在企业级API市场形成定价权，AWS（亚马逊云）为其核心分发渠道，对应A股弹性：①云计算基础设施（UCloud、光环新网）；②国内MaaS层（昆仑万维、科大讯飞的API货币化能力将受更大竞争压力）。<br><br>
+        <strong>GLM-5.1 SWE-bench Pro编程能力58.4%，开源第1：</strong>这意味着智谱AI在代码生成领域已可挑战GPT-5.5（58.6%），二者差距仅0.2个百分点。国内IDC（数据中心）与代码辅助工具赛道（中科软、用友网络）的AI集成可从中受益。DeepSeek V4 Pro GPQA科学推理约87%，仍落后Kimi K2.6（90.5%）。<br><br>
+        <strong>配置建议：</strong>短期关注智谱AI（港股上市预期）、月之暗面（Kimi母公司）的融资动向对二级市场AI应用链的溢出效应；A股重点关注AI应用层（三六零、金山办公）而非模型层估值重评。
       </div>
+      <div class="tech-mapping">[A股映射] 智谱AI、昆仑万维、科大讯飞、三六零、金山办公 | 核心逻辑：开源模型能力追平闭源，降低国内企业AI集成成本，应用层盈利空间扩大</div>
+    </div>
 
-      <!-- 宏观脉搏 -->
-      <div class="section">
-        <div class="section-header">
-          <div class="section-icon icon-blue">📡</div>
-          <span class="section-title">宏观脉搏</span>
-          <span class="section-badge">MACRO PULSE</span>
-        </div>
+    <div class="tech-card">
+      <div class="tech-title">[科技-02] 半导体：中芯定增+外资韩股抛售信号解读</div>
+      <div class="tech-body">
+        <strong>中芯国际80亿定增：</strong>12英寸成熟制程扩产窗口正在打开——4月国内晶圆厂稼动率已回升至约88%（近期数据），汽车芯片和工业MCU补库存需求显著，定增募资方向具备景气支撑。<br><br>
+        <strong>韩国市场信号：</strong>外资单周净抛售韩国权益资产达130亿美元，KOSPI单日跌1.84%，波动率接近历史高位。这一极端抛售反映外资对东亚半导体出口链的担忧（中美关税不确定性、伊朗风险推高能源成本）。三星电子、SK海力士估值承压，对A股存储设计股（兆易创新）的EPS传导需持续追踪。<br><br>
+        <strong>国内半导体催化剂：</strong>华为麒麟/鸿蒙生态相关芯片设计公司（北京君正、瑞芯微）在国产替代逻辑驱动下仍有结构性机会，但需警惕科创50估值整体回落带来的Beta压力。
+      </div>
+      <div class="tech-mapping">[A股映射] 中芯国际(688981)、兆易创新、北京君正、韦尔股份、沪硅产业 | 关注中芯定增发行价区间对二级市场的锚定效应</div>
+    </div>
 
-        <div class="alert-strip">
-          <div class="alert-label">⚠ 数据预警</div>
-          中国4月经济数据整体低于市场预期：消费、工业产出、固定资产投资增速均未达预期，零售销售增速创2022年以来新低，内需修复动能有所减弱。
-        </div>
+    <div class="tech-card">
+      <div class="tech-title">[科技-03] 商业航天：政策窗口期与发射密度提速</div>
+      <div class="tech-body">
+        <strong>产业节奏：</strong>2026年国内商业航天进入发射密度最高年份，全年计划入轨卫星数量预计超400颗（近期公开数据）。星网（国家队）低轨星座一期组网进入收官阶段，为商业服务体系奠定基础。<br><br>
+        <strong>关键产业链节点：</strong>①液氧甲烷发动机量产（天兵科技、东方空间，已完成多次入轨验证）；②卫星互联网地面设备（华测导航、中国卫通）；③火箭回收技术（蓝箭航天、星际荣耀）正处商业化突破前夜。<br><br>
+        <strong>A股映射：</strong>航天电子（600879）、振芯科技、铖昌科技在卫星载荷和地面终端上受益最直接。军民两用遥感卫星数据服务（中科星图）已在国家基础设施领域形成稳定营收，估值仍处合理区间。<br><br>
+        <strong>风险提示：</strong>商业航天个股流动性较弱，概念炒作分散真实基本面，需筛选有量产订单和现金流支撑的标的。
+      </div>
+      <div class="tech-mapping">[A股映射] 航天电子、中科星图、华测导航、振芯科技、铖昌科技 | 核心催化：新一批发射窗口公告 + 星网地面设备集采</div>
+    </div>
 
-        <div class="card">
-          <table class="macro-table">
-            <thead>
-              <tr>
-                <th>指标</th>
-                <th>最新值</th>
-                <th>前值 / 参考</th>
-                <th>趋势研判</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>制造业PMI（4月）</td>
-                <td class="val-positive">50.3</td>
-                <td>同比 +2.65%</td>
-                <td>扩张区间，出口订单或受关税扰动</td>
-              </tr>
-              <tr>
-                <td>非制造业PMI（4月）</td>
-                <td class="val-negative">49.4
+    <div class="tech-card">
+      <div class="tech-title">[科技-04] 人形机器人：宇树科技IPO定价锚与行业估值参照系</div>
+      <div class="tech-body">
+        <strong>宇树科技IPO核心数据（→见A股公告板块）：</strong>估值420亿/拟募42亿。这一估值给出了国内人形机器人行业的定价锚——以2025年营收约12亿元计，PS约35倍，显著高于海外人形机器人可比标的，反映市场对长期成长性的极度乐观定价。<br><br>
+        <strong>量产节点验证：</strong>宇树H30机器人已在汽车工厂和3C工厂实现有偿商业部署，是目前国内极少数"量产交付"而非"展示样机"的整机厂。这一差异是机构给予高估值的核心依据。<br><br>
+        <strong>产业链竞争格局：</strong>宇树上市将对同赛道的优必选（港股02147）形成明显定价压力；零部件层面，丝杠（贝斯特）、六维力传感器（坤维科技）、行星减速器（昊志机电）等仍受益于行业整体量产加速逻辑。<br><br>
+        <strong>配置建议：</strong>宇树打新关注创投持仓结构；二级市场优先布局零部件而非整机。
+      </div>
+      <div class="tech-mapping">[A股映射] 贝斯特、昊志机电、鸣志电器、东方精工 | 宇树IPO定价对整机估值存在天花板效应，零部件性价比更优</div>
+    </div>
+
+    <div class="tech-card full-width">
+      <div class="tech-title">[科技-05] 新能源：油价反弹+宁德麒麟3.0签单，双重信号解读</div>
+      <div class="tech-body">
+        <strong>油价反弹对新能源
