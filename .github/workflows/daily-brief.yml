@@ -40,9 +40,11 @@ jobs:
       - name: 生成早报
         env:
           TZ: Asia/Shanghai
+          PYTHONUTF8: '1'
+          LANG: zh_CN.UTF-8
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL }}
-          GITHUB_PAGES_URL: ${{ vars.PAGES_URL }}
+          CLAUDE_MODEL: ${{ vars.CLAUDE_MODEL || 'claude-sonnet-4-20250514' }}
+          GITHUB_PAGES_URL: ${{ vars.GITHUB_PAGES_URL || vars.PAGES_URL }}
         run: python main.py
 
       - name: 检查早报文件
@@ -75,13 +77,14 @@ jobs:
           }
           </style>
           """
-          if "</head>" in html:
-              html = html.replace("</head>", font_fix + "\n</head>", 1)
-          else:
-              html = font_fix + html
+          if "codex-cjk-pdf-font-fix" not in html:
+              if "</head>" in html:
+                  html = html.replace("</head>", font_fix + "\n</head>", 1)
+              else:
+                  html = font_fix + html
           html_path.write_text(html, encoding="utf-8")
           PY
-          google-chrome --headless --disable-gpu --no-sandbox --run-all-compositor-stages-before-draw --print-to-pdf=docs/brief.pdf "file://$PWD/docs/index.html"
+          google-chrome --headless --disable-gpu --no-sandbox --font-render-hinting=none --run-all-compositor-stages-before-draw --virtual-time-budget=3000 --print-to-pdf=docs/brief.pdf "file://$PWD/docs/index.html"
           test -f docs/brief.pdf
           ls -lh docs/brief.pdf
 
@@ -97,5 +100,5 @@ jobs:
           TZ: Asia/Shanghai
           WECHAT_WEBHOOK_URL: ${{ secrets.WECHAT_WEBHOOK_URL }}
           WXPUSHER_TOKEN: ${{ secrets.WXPUSHER_TOKEN }}
-          GITHUB_PAGES_URL: ${{ vars.PAGES_URL }}
+          GITHUB_PAGES_URL: ${{ vars.GITHUB_PAGES_URL || vars.PAGES_URL }}
         run: python send_wechat.py
