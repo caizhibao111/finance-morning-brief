@@ -84,7 +84,8 @@ jobs:
                   html = font_fix + html
           html_path.write_text(html, encoding="utf-8")
           PY
-          google-chrome --headless --disable-gpu --no-sandbox --font-render-hinting=none --run-all-compositor-stages-before-draw --virtual-time-budget=3000 --print-to-pdf=docs/brief.pdf "file://$PWD/docs/index.html"
+          google-chrome --headless --disable-gpu --no-sandbox --no-pdf-header-footer --font-render-hinting=none --run-all-compositor-stages-before-draw --virtual-time-budget=3000 --print-to-pdf=docs/brief.pdf "file://$PWD/docs/index.html"
+
           test -f docs/brief.pdf
           ls -lh docs/brief.pdf
 
