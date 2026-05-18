@@ -691,13 +691,13 @@ def format_data(data: dict) -> str:
 
     if data.get('hk_flow'):
         lines.append('\n## 【南向资金（港股通净流入）】')
-        lines.append(json.dumps(data['hk_flow'], ensure_ascii=False)[:200])
+        lines.append(json.dumps(data['hk_flow'], ensure_ascii=False, default=str)[:200])
 
     # 宏观
     if data.get('macro'):
         lines.append('\n## 【官方宏观数据（国家统计局/央行）】')
         for k, v in data['macro'].items():
-            lines.append(f"- {k}: {json.dumps(v, ensure_ascii=False)[:80]}")
+            lines.append(f"- {k}: {json.dumps(v, ensure_ascii=False, default=str)[:80]}")
 
     # 国际要闻
     if data.get('intl'):
@@ -949,7 +949,7 @@ def main():
             'filename': filename,
             'date':     datetime.now().strftime('%Y-%m-%d'),
             'model':    CLAUDE_MODEL
-        }, f, ensure_ascii=False)
+        }, f, ensure_ascii=False, default=str)
 
     print('=' * 55)
     print('✓ 早报生成完成')
