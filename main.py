@@ -462,6 +462,8 @@ def call_claude(prompt: str) -> str:
         raise RuntimeError("未配置 ANTHROPIC_API_KEY")
 
     print(f"调用Claude生成早报: {CLAUDE_MODEL}")
+    print(f"ANTHROPIC_API_KEY 已配置: {'是' if bool(ANTHROPIC_API_KEY) else '否'}")
+
     resp = requests.post(
         ANTHROPIC_URL,
         headers={
@@ -480,7 +482,8 @@ def call_claude(prompt: str) -> str:
 
     if resp.status_code >= 400:
         print(f"Claude API错误状态码: {resp.status_code}")
-        print(resp.text[:1000])
+        print(resp.text[:3000])
+
 
     resp.raise_for_status()
     content = resp.json().get("content", [])
